@@ -45,6 +45,7 @@ var orm = {
     },
     insertOne: function(table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table;
+        queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
@@ -57,7 +58,6 @@ var orm = {
             if (err) {
                 throw err;
             }
-
             cb(result);
         });
     },
@@ -76,7 +76,7 @@ var orm = {
                 throw err;
             }
 
-            cb(results);
+            cb(result);
         });
     }
 };
