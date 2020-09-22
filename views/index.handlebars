@@ -1,33 +1,67 @@
-<h1>EAT-DA-BURGER</h1>
-
-<h2>Burgers to Devour</h2>
-
-<ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-        {{> burger/burger-block devoured=true}}
-    {{/unless}}
-    {{/each}}
-</ul>
-
-<h2>You ATE all these burgers?!</h2>
-
-<ul>
-    {{#each burgers}}
-    {{#if devoured}}
-        {{> burger/burger-block devoured=false}}
-    {{/if}}
-    {{/each}}
-</ul>
-
-<h2>Add a Burger</h2>
-
-<form class="create-form">
-
-    <div class="form-group">
-        <label for="newBurger">Burger Name:</label>
-        <input type="text" id="newBurger" name="burger_name">
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Burger Cat-fe</h1>
+        <br>
+        <div class="catburger"></div>
+        <br>
+        <p class="lead">Place your order below and devour as many burgers as you like!</p>
+    </div>
+</div>
+<br><br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card w-40">
+            <div class="card-header">Your burgers are ready</div>
+            <div class="card-body">
+                <h5 class="card-title">Devour them while it's hot!</h5>
+                <p class="card-text">
+                <ul>
+                    {{#each burgers}}
+                    {{#unless devoured}}<br>
+                    {{> burger/burger-block devoured=true}}
+                    {{/unless}}
+                    {{/each}}
+                </ul>
+                </p>
+            </div>
+        </div>
     </div>
 
-    <button type="submit">Add Burger</button>
-</form>
+    <div class="col-md-6">
+        <div class="card w-40">
+            <div class="card-header">All the burgers you have eaten</div>
+            <div class="card-body">
+                <h5 class="card-title">Want to re-order?</h5>
+                <p class="card-text">
+                <ul>
+                    {{#each burgers}}
+                    {{#if devoured}}<br>
+                    {{> burger/burger-block devoured=false}}<br>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="row">
+    <div class="col-md-10">
+        <div class="card w-70">
+            <div class="card-header">Order a Burger here</div>
+            <div class="card-body">
+                <p class="card-text">
+                <form class="create-form">
+
+                    <div class="form-group">
+                        <label for="newBurger">Burger:</label>
+                        <input type="text" id="newBurger" name="burger_name">
+                    </div>
+
+                    <button class="btn btn-outline-success" type="submit">Order Burger</button>
+                </form>
+                </p>
+            </div>
+        </div>
+    </div>
